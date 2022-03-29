@@ -25,11 +25,11 @@ export const ToDoList = () => {
     }
   };
 
-  const handleSubmitEditTodo = (todoIndex) => {
-    setToDo((prev) => {
-      return prev.filter((todo, index) => index !== todoIndex);
-    });
+  const handleSubmitEditTodo = (targetIndex) => {
     setToDo([...todo, currentEditToDo]);
+    setToDo((prev) => {
+      return prev.filter((todo, index) => index !== targetIndex);
+    });
     setEditToDo(false);
   };
 
@@ -66,10 +66,9 @@ export const ToDoList = () => {
             </>
           ) : (
             <>
-              {" "}
               <li>
                 <input type="text" onChange={handleEditToDoValue} value={currentEditToDo}></input>
-                <button onClick={handleSubmitEditTodo}>Submit</button>
+                <button onClick={() => handleSubmitEditTodo(index)}>Submit</button>
               </li>
             </>
           )
