@@ -4,7 +4,7 @@ import "../css/ToDoList.css";
 export const ToDoList = () => {
   const [todo, setToDo] = useState([]);
   const [currentToDo, setCurrentToDo] = useState("");
-  const [editToDo, setEditToDo] = useState(false);
+  const [editToDo, setEditToDo] = useState([]); //keep track of index rather than truth values
   const [currentEditToDo, setCurrentEditToDo] = useState("");
 
   const handleToDo = (e) => {
@@ -17,20 +17,14 @@ export const ToDoList = () => {
     setCurrentEditToDo(e.target.value);
   };
 
-  const handleEditToDo = () => {
-    if (editToDo === false) {
-      setEditToDo(true);
-    } else if (editToDo === true) {
-      setEditToDo(false);
-    }
+  const handleEditToDo = (targetIndex) => {
+    setEditToDo([...editToDo, targetIndex]);
   };
 
   const handleSubmitEditTodo = (targetIndex) => {
-    setToDo([...todo, currentEditToDo]);
-    setToDo((prev) => {
-      return prev.filter((todo, index) => index !== targetIndex);
-    });
-    setEditToDo(false);
+    const newToDoArr = [...todo];
+    newToDoArr[targetIndex] = currentEditToDo;
+    setToDo([...newToDoArr]);
   };
 
   const handleRemoveToDo = (targetIndex) => {
@@ -55,22 +49,22 @@ export const ToDoList = () => {
       <h3>{todo.length} tasks remaining</h3>
       <ul>
         {todo.map((item, index) =>
-          editToDo === false ? (
-            <>
+          !editToDo.includes(index) ? (
+            <div key={`${item}${index}`}>
               <li>
                 <input type="checkbox" name={`${item}'s checkbox`} value={item} />
-                <label for={`${item}'s checkbox`}> {item}</label>
+                <label htmlFor={`${item}'s checkbox`}> {item}</label>
               </li>
-              <button onClick={handleEditToDo}>Edit {item}</button>
+              <button onClick={() => handleEditToDo(index)}>Edit {item}</button>
               <button onClick={() => handleRemoveToDo(index)}>Delete {item}</button>
-            </>
+            </div>
           ) : (
-            <>
+            <div key={`${item}${index}`}>
               <li>
                 <input type="text" onChange={handleEditToDoValue} value={currentEditToDo}></input>
                 <button onClick={() => handleSubmitEditTodo(index)}>Submit</button>
               </li>
-            </>
+            </div>
           )
         )}
       </ul>
