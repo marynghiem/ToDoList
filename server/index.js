@@ -4,6 +4,9 @@ const port = process.env.PORT || 5000; //Line 3
 const cors = require("cors");
 const pool = require("./db");
 
+// This displays message that the server running and listening to specified port
+app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
+
 //middleware
 app.use(cors());
 app.use(express.json());
@@ -60,13 +63,11 @@ app.delete("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [id]);
+    res.json("Todo was deleted");
   } catch (err) {
     console.log(err.message);
   }
 });
-
-// This displays message that the server running and listening to specified port
-app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
 
 // create a GET route
 app.get("/express_backend", (req, res) => {

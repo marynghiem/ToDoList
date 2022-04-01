@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "../css/ToDoList.css";
 
 export const ToDoList = () => {
@@ -36,11 +36,15 @@ export const ToDoList = () => {
 
   console.log(todo);
   return (
-    <div>
-      <h1>To do</h1>
+    <Fragment>
+      <h1 className="text-center mt-5">To do</h1>
       <h3>What needs to be done?</h3>
-      <input type="text" onChange={handleToDo} value={currentToDo}></input>
-      <button onClick={handleAddToDo}>Add</button>
+      <form className="d-flex mt-5">
+        <input type="text" className="form-control" onChange={handleToDo} value={currentToDo}></input>
+        <button className="btn btn-success" onClick={handleAddToDo}>
+          Add
+        </button>
+      </form>
       <div>
         <button>Show all tasks</button>
         <button>Show active tasks</button>
@@ -68,6 +72,6 @@ export const ToDoList = () => {
           )
         )}
       </ul>
-    </div>
+    </Fragment>
   );
 };
