@@ -1,0 +1,16 @@
+.todo-title {
+  color: #7d554d;
+  font-weight: bold;
+}
+.todo-form {
+  width: 700px;
+  margin: auto;
+}
+
+.todo-list-container {
+  background-color: #ab8b8d;
+  height: 700px;
+  width: 700px;
+  margin: auto;
+  border-radius: 5px;
+}

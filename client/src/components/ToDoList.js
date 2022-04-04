@@ -52,9 +52,9 @@ export const ToDoList = () => {
   return (
     <>
       <Fragment>
-        <h1 className="text-center mt-5">To do</h1>
+        <h1 className="todo-title text-center mt-5">To Do List</h1>
         <h3>What needs to be done?</h3>
-        <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+        <form className="d-flex mt-5 todo-form" onSubmit={onSubmitForm}>
           <input
             type="text"
             className="form-control"
@@ -64,7 +64,7 @@ export const ToDoList = () => {
           <button className="btn btn-success">Add</button>
         </form>
       </Fragment>
-      <Fragment>
+      <div className="todo-list-container">
         <table className="table mt-5 text-center">
           <thead>
             <tr>
@@ -74,10 +74,6 @@ export const ToDoList = () => {
             </tr>
           </thead>
           <tbody>
-            {/*  <tr> <td>John</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-            </tr>*/}
             {todos.map((todo) => (
               <tr key={todo.todo_id}>
                 <td>{todo.description}</td>
@@ -93,7 +89,7 @@ export const ToDoList = () => {
             ))}
           </tbody>
         </table>
-      </Fragment>
+      </div>
     </>
   );
 };
