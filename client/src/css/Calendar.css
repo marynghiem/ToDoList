@@ -1,0 +1,11 @@
+.calendar-container{
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    margin: 100px auto;
+
+}
+
+.month-title{
+    border-bottom: solid;
+}
