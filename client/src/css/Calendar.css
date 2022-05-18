@@ -1,6 +1,6 @@
 .calendar-container{
-    height: 500px;
-    width: 500px;
+    height: 550px;
+    width: 800px;
     background-color: white;
     margin: 100px auto;
 
@@ -8,4 +8,9 @@
 
 .month-title{
     border-bottom: solid;
+}
+
+.day-of-the-week{
+    display: inline-block;
+    margin-right: 30px;
 }

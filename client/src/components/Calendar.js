@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/Calendar.css";
 
+const DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const Calendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
@@ -11,7 +12,7 @@ export const Calendar = () => {
 
   return (
     <>
-      <select name="Month" id="Month" onChange={handleMonthChange}>
+      <select name="month" id="month" onChange={handleMonthChange}>
         <option value="January">January</option>
         <option value="February">February</option>
         <option value="March">March</option>
@@ -25,8 +26,16 @@ export const Calendar = () => {
         <option value="November">November</option>
         <option value="December">December</option>
       </select>
+      <select name="time-frame" id="time-frame">
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+      </select>
       <div className="calendar-container">
         <h3 className="month-title">{month}</h3>
+        {DAYS_OF_THE_WEEK.map((day) => (
+          <div className="day-of-the-week">{day}</div>
+        ))}
       </div>
     </>
   );
