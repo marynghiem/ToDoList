@@ -3,12 +3,11 @@ import "../css/NavBar.css";
 
 export const NavBar = () => {
   return (
-    <div class="topnav">
-      <a class="active" href="#home">
+    <div className="topnav">
+      <a className="active" href="#home">
         Home
       </a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
+      <a href="/todo">To do</a>
       <a href="#about">About</a>
     </div>
   );
