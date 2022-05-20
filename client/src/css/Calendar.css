@@ -1,18 +1,33 @@
 .calendar-container{
     height: 550px;
     width: 800px;
-    background-color: white;
+    background-color: #feffff;
     margin: 100px auto;
+    border-radius: 20px;
+    border-color: #d18ea6;
 
 }
 
 .month-title{
-    border-bottom: solid;
+    border-bottom: solid 3px;
+    border-color: #d498a7;
+    margin-bottom: 0px;
+}
+
+.day-of-the-week-container{
+    background-color: #ffe7eb;
+    height:50px;
 }
 
 .day-of-the-week{
     display: inline-block;
-    margin-right: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    margin-top:10px;
+    color:#e28da6;
+    font-weight:bold;
+
 }
 .day-box{
     display: inline-block;

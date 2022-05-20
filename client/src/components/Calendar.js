@@ -50,9 +50,11 @@ export const Calendar = () => {
       </select>
       <div className="calendar-container">
         <h3 className="month-title">{month}</h3>
-        {DAYS_OF_THE_WEEK.map((day) => (
-          <div className="day-of-the-week">{day}</div>
-        ))}
+        <div className="day-of-the-week-container">
+          {DAYS_OF_THE_WEEK.map((day) => (
+            <div className="day-of-the-week">{day}</div>
+          ))}
+        </div>
         {create2DArray(ROWS_OF_WEEKS, COLUMNS_OF_DAYS).map((week) =>
           week.map((day) => <div className="day-box">hello</div>)
         )}
