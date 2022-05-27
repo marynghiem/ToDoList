@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 import "../css/Calendar.css";
 
+const MONTHS_IN_A_YEAR = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "Decemeber",
+];
 const DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const COLUMNS_OF_DAYS = 7;
 const ROWS_OF_WEEKS = 6;
@@ -30,18 +44,9 @@ export const Calendar = () => {
   return (
     <>
       <select name="month" id="month" onChange={handleMonthChange}>
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
+        {MONTHS_IN_A_YEAR.map((month) => (
+          <option value={month}>{month}</option>
+        ))}
       </select>
       <select name="time-frame" id="time-frame">
         <option value="weekly">Weekly</option>
