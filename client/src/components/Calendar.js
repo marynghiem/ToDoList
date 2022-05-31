@@ -61,6 +61,24 @@ const leapYear = () => {
     return false;
   }
 };
+const getDays = (month, year) => {
+  let ar = newArray(12);
+  ar[0] = 31; // January
+  ar[1] = leapYear(year) ? 29 : 28; // February
+  ar[2] = 31; // March
+  ar[3] = 30; // April
+  ar[4] = 31; // May
+  ar[5] = 30; // June
+  ar[6] = 31; // July
+  ar[7] = 31; // August
+  ar[8] = 30; // September
+  ar[9] = 31; // October
+  ar[10] = 30; // November
+  ar[11] = 31; // December
+
+  // return number of days in the specified month (parameter)
+  return ar[month];
+};
 
 export const Calendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
