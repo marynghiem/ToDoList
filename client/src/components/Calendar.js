@@ -33,6 +33,27 @@ const create2DArray = (rowNum, columnNum) => {
 
 console.log(create2DArray(ROWS_OF_WEEKS, COLUMNS_OF_DAYS));
 
+const getTime = () => {
+  const now = new Date();
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+  now = null;
+  let ampm = "";
+
+  if (hour >= 12) {
+    hour -= 12;
+    ampm = "PM";
+  } else {
+    ampm = "AM";
+    hour = hour == 0 ? 12 : hour;
+  }
+
+  if (minute < 10) {
+    minute = "0" + minute + " " + ampm;
+  }
+  return hour + ":" + minute + " " + ampm;
+};
+
 export const Calendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
