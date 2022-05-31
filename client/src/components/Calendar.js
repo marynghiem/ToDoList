@@ -54,6 +54,14 @@ const getTime = () => {
   return hour + ":" + minute + " " + ampm;
 };
 
+const leapYear = () => {
+  if (year % 4 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export const Calendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
