@@ -100,6 +100,24 @@ const getMonthName = (month) => {
   return ar[month];
 };
 
+const setCal = () => {
+  let now = new Date();
+  let year = now.getYear();
+  if (year < 1000) {
+    year += 1900;
+  }
+  let month = now.getMonth();
+  let monthName = getMonthName(month);
+  let date = now.getDate();
+  now = null;
+  let firstDayInstance = new Date(year, month, 1);
+  let firstDay = firstDayInstance.getDay();
+  firstDayInstance = null;
+
+  let days = getDays(month, year);
+  drawCal(firstDay + 1, days, date, monthName, year);
+};
+
 export const Calendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
