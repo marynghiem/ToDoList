@@ -31,7 +31,10 @@
 }
 .day-box{
     display: inline-block;
-    margin-top: 20px;
-    height: 50px;
-    width: 110px;
+    margin-top: 0px;
+    height: 70px;
+    width: 114.25px;
+    border: solid 1px;
+    border-color: #cd99ab;
+    padding-top:20px;
 }
