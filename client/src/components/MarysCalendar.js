@@ -17,29 +17,13 @@ const MONTHS_IN_A_YEAR = [
   "Decemeber",
 ];
 const DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const COLUMNS_OF_DAYS = 7;
-const ROWS_OF_WEEKS = 6;
-
-const create2DArray = (rowNum, columnNum) => {
-  const totalArray = [];
-  for (let i = 0; i < rowNum; i++) {
-    const rows = [];
-    for (let j = 0; j < columnNum; j++) {
-      rows.push(0);
-    }
-    totalArray.push(rows);
-  }
-  return totalArray;
-};
-
-// console.log(create2DArray(ROWS_OF_WEEKS, COLUMNS_OF_DAYS));
 
 export const MarysCalendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
 
   // Start Code
-  const MONTH = 6;
+  const MONTH = MONTHS_IN_A_YEAR.indexOf(month);
   const YEAR = 2022;
   const firstDayInstance = new Date(YEAR, MONTH, 1);
   const firstDay = firstDayInstance.getDay();
