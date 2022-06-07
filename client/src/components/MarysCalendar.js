@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getNumberOfDaysInMonth } from "../utils/DateUtils";
 import "../css/Calendar.css";
 
 const MONTHS_IN_A_YEAR = [
@@ -31,11 +32,39 @@ const create2DArray = (rowNum, columnNum) => {
   return totalArray;
 };
 
-console.log(create2DArray(ROWS_OF_WEEKS, COLUMNS_OF_DAYS));
+// console.log(create2DArray(ROWS_OF_WEEKS, COLUMNS_OF_DAYS));
 
 export const MarysCalendar = () => {
   const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
+
+  // Start Code
+  const MONTH = 6;
+  const YEAR = 2022;
+  const firstDayInstance = new Date(YEAR, MONTH, 1);
+  const firstDay = firstDayInstance.getDay();
+  const daysInMonth = getNumberOfDaysInMonth(MONTH, YEAR);
+
+  const createDateArray = (firstDay, lastDate) => {
+    let curCell = 1;
+    let digit = 1;
+    const outerArray = [];
+    for (var row = 1; row <= Math.ceil((lastDate + firstDay - 1) / 7); ++row) {
+      const innerArray = [];
+      for (var col = 1; col <= 7; ++col) {
+        if (digit > lastDate || curCell < firstDay) {
+          innerArray.push(0);
+        } else {
+          innerArray.push(digit);
+          digit++;
+        }
+        curCell++;
+      }
+      outerArray.push(innerArray);
+    }
+    return outerArray;
+  };
+  // End Code
 
   const handleMonthChange = (e) => {
     setMonth(e.target.value);
@@ -60,8 +89,13 @@ export const MarysCalendar = () => {
             <div className="day-of-the-week">{day}</div>
           ))}
         </div>
-        {create2DArray(ROWS_OF_WEEKS, COLUMNS_OF_DAYS).map((week) =>
-          week.map((day) => <div className="day-box">hello</div>)
+        {createDateArray(firstDay + 1, daysInMonth).map((week) =>
+          week.map((day) => {
+            if (day === 0) {
+              <div className="day-box">hello</div>;
+            }
+            return <div className="day-box">{day}</div>;
+          })
         )}
       </div>
     </>
