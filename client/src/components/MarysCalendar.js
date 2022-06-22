@@ -76,7 +76,7 @@ export const MarysCalendar = () => {
         {createDateArray(firstDay + 1, daysInMonth).map((week) =>
           week.map((day) => {
             if (day === 0) {
-              return <div className="day-box">j</div>;
+              return <div className="day-box">&nbsp;</div>;
             } else {
               return <div className="day-box">{day}</div>;
             }
