@@ -1,5 +1,5 @@
 .todo-title {
-  color: #7d554d;
+  color: black;
   font-weight: bold;
 }
 .todo-form {
@@ -8,7 +8,7 @@
 }
 
 .todo-list-container {
-  background-color: #ab8b8d;
+  background-color:  #feffff;
   height: 700px;
   width: 700px;
   margin: auto;

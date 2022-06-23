@@ -38,3 +38,7 @@
     border-color: #cd99ab;
     padding-top:20px;
 }
+
+.day-box:hover{
+background-color: rgb(238, 238, 238);
+}
