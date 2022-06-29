@@ -19,8 +19,8 @@ const MONTHS_IN_A_YEAR = [
 const DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export const MarysCalendar = () => {
-  const [timeLength, setTimeLength] = useState("Month");
   const [month, setMonth] = useState("January");
+  const [selectedDate, setSelectedDate] = useState("");
 
   // Start Code
   const MONTH = MONTHS_IN_A_YEAR.indexOf(month);
@@ -54,6 +54,10 @@ export const MarysCalendar = () => {
     setMonth(e.target.value);
   };
 
+  const handleSelectingDate = (date) => {
+    setSelectedDate(date);
+  };
+  console.log(selectedDate);
   return (
     <>
       <select name="month" id="month" onChange={handleMonthChange}>
@@ -78,7 +82,11 @@ export const MarysCalendar = () => {
             if (day === 0) {
               return <div className="day-box">&nbsp;</div>;
             } else {
-              return <div className="day-box">{day}</div>;
+              return (
+                <div className="day-box" onClick={() => handleSelectingDate(`${month} ${day}`)}>
+                  {day}
+                </div>
+              );
             }
           })
         )}
