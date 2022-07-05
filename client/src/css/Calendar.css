@@ -18,6 +18,17 @@
     border-radius: 20px;
     padding-top: 15px;
 }
+
+.selection-month{
+    background-color: white;
+    color: black;
+    height: 50px;
+    width: 120px;
+    border-radius: 20px;
+    padding-top: 15px;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
 .calendar-container{
     height: 550px;
     width: 800px;
@@ -29,6 +40,8 @@
     margin-right: 10vw;
 
 }
+
+
 
 .month-title{
     border-bottom: solid 3px;
