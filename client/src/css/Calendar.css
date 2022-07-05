@@ -14,21 +14,29 @@
     background-color: pink;
     color: white;
     height: 50px;
-    width: 150px;
-    border-radius: 20px;
+    width: 180px;
+    border-radius: 30px;
     padding-top: 15px;
 }
-
+.selection-all-months{
+    height:500px;
+    overflow: scroll;
+}
 .selection-month{
     background-color: white;
     color: black;
-    height: 50px;
+    height: 40px;
     width: 120px;
-    border-radius: 20px;
-    padding-top: 15px;
+    border-radius: 30px;
+    padding-top: 10px;
     margin-bottom: 10px;
     margin-top:10px;
 }
+
+.selection-month:hover{
+    background-color: rgb(238, 238, 238);
+    }
+    
 .calendar-container{
     height: 550px;
     width: 800px;
@@ -40,8 +48,6 @@
     margin-right: 10vw;
 
 }
-
-
 
 .month-title{
     border-bottom: solid 3px;
