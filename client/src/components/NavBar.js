@@ -8,7 +8,6 @@ export const NavBar = () => {
         Home
       </a>
       <a href="/todo">To do</a>
-      <a href="#about">About</a>
     </div>
   );
 };

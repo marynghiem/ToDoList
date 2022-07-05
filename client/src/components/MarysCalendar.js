@@ -50,8 +50,8 @@ export const MarysCalendar = () => {
   };
   // End Code
 
-  const handleMonthChange = (e) => {
-    setMonth(e.target.value);
+  const handleMonthChange = (selectedMonth) => {
+    setMonth(selectedMonth);
   };
 
   const handleSelectingDate = (date) => {
@@ -59,17 +59,14 @@ export const MarysCalendar = () => {
   };
   console.log(selectedDate);
   return (
-    <>
-      <select name="month" id="month" onChange={handleMonthChange}>
+    <div className="home-container">
+      <div className="selection">
+        <div className="selection-title">Month</div>
         {MONTHS_IN_A_YEAR.map((month) => (
-          <option value={month}>{month}</option>
+          <div onClick={() => handleMonthChange(month)}>{month}</div>
         ))}
-      </select>
-      <select name="time-frame" id="time-frame">
-        <option value="weekly">Weekly</option>
-        <option value="monthly">Monthly</option>
-        <option value="yearly">Yearly</option>
-      </select>
+      </div>
+
       <div className="calendar-container">
         <h3 className="month-title">{month}</h3>
         <div className="day-of-the-week-container">
@@ -91,6 +88,6 @@ export const MarysCalendar = () => {
           })
         )}
       </div>
-    </>
+    </div>
   );
 };
