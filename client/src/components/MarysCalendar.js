@@ -63,11 +63,17 @@ export const MarysCalendar = () => {
       <div className="selection">
         <div className="selection-title">Month</div>
         <div className="selection-all-months">
-          {MONTHS_IN_A_YEAR.map((month) => (
-            <div className="selection-month" onClick={() => handleMonthChange(month)}>
-              {month}
-            </div>
-          ))}
+          {MONTHS_IN_A_YEAR.map((item, index) =>
+            item === month ? (
+              <div className="selection-month highlighted-month" key={index} onClick={() => handleMonthChange(item)}>
+                {item}
+              </div>
+            ) : (
+              <div className="selection-month hover-month" key={index} onClick={() => handleMonthChange(item)}>
+                {item}
+              </div>
+            )
+          )}
         </div>
       </div>
 
